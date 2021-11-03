@@ -1,0 +1,40 @@
+<header>
+  <img id="logoHead" src="/img/logo.png" alt="" />
+  <h2>Participantes</h2>
+</header>
+<div class="py-4">
+  <table id="formReg" class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Foto</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Años de experiencia</th>
+        <th scope="col">Especialidad</th>
+        <th scope="col">Estado</th>
+      </tr>
+    </thead>
+    <tbody id="participantes">
+      {{#each usuarios}}
+        <tr>
+          <th scope="row">{{inc @index}}</th>
+          <td class="contenedor"><img src="./upload/{{this.foto}}" id="fotoSkater" alt="foto_skater" /></td>
+          <td>{{this.nombre}}</td>
+          <td>{{this.anos_experiencia}}</td>
+          <td>{{this.especialidad}}</td>
+          {{#if this.estado}}
+            <td class="text-success font-weight-bold">Aprobado</td>
+          {{else}}
+            <td class="text-warning font-weight-bold">En revisión</td>
+          {{/if}}>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  <div class="mt-5">
+    <button id="buttonReg" class="btn btn-info mb-3"><a href="./registro">Registrarme</a></button>
+    <button id="buttonLogin" class="btn btn-info mb-3"><a href="./login">Iniciar Sesion</a></button>
+    <button id="buttonAdmin" class="btn btn-info mb-3"><a href="./admin">Administrador</a></button>
+  </div>
+
+</div>

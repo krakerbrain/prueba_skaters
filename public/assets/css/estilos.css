@@ -1,0 +1,120 @@
+@font-face {
+  font-family: "Fresh Marker Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Fresh Marker Regular"), url("../fonts/freshmarker.woff") format("woff");
+}
+
+body {
+  background-image: url("../img/skateparkBG.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #4a4a4a;
+  text-shadow: 0px 0px 1px black;
+  font-family: "Fresh Marker Regular";
+  text-align: center;
+}
+
+#formReg {
+  width: 80%;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(3.5px);
+  -webkit-backdrop-filter: blur(3.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+#homeLogo {
+  max-width: 50%;
+}
+#logoHead {
+  max-width: 20%;
+  margin: 20 auto;
+}
+
+h2 {
+  background-color: #20d7e6;
+  font-size: 2.8rem;
+  letter-spacing: 1rem;
+  color: rgb(39, 39, 39);
+  max-width: 80%;
+  margin: auto;
+}
+label {
+  font-size: 2rem;
+  color: rgb(39, 39, 39);
+}
+#foto {
+  font-size: 1.5rem;
+  color: rgb(255, 255, 255);
+}
+#buttonReg {
+  background-color: #e62095;
+  width: 200px;
+  font-size: 1.2rem;
+  color: rgb(39, 39, 39);
+}
+#buttonLogin {
+  background-color: #e6ca09;
+  width: 200px;
+  font-size: 1.2rem;
+  color: rgb(39, 39, 39);
+}
+#buttonAdmin {
+  background-color: #20d7e6;
+  width: 200px;
+  font-size: 1.2rem;
+}
+a {
+  font-size: 1.5rem;
+  color: rgb(39, 39, 39);
+}
+td,
+th {
+  vertical-align: middle !important;
+  text-align: center;
+  font-size: 1.2rem;
+  font-family: "Roboto", sans-serif;
+}
+td div {
+  background-size: cover;
+  width: 60px;
+  height: 60px;
+}
+
+input {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#fotoSkater {
+  max-width: 100px;
+}
+
+.contenedor img {
+  width: 100px;
+  height: 100px;
+  border: 2px solid #fff;
+}
+
+.contenedor img#fotoSkater {
+  object-fit: fill;
+}
+#loginReg {
+  font-size: 1.2rem;
+  color: rgb(39, 39, 39);
+}
+#loginReg a {
+  color: #c31e30;
+}
+
+.passError {
+  display: none;
+}
+
+.passErrorActive {
+  color: #c31e30;
+  display: block;
+}
