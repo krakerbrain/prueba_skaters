@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="public\assets\img\logo.png" alt="Image" width="200" height="200" />
+    <img src="public\assets\img\logo.png" alt="Image" width="300" height="200" />
 </p>
 
 # Prueba - Skate Park
