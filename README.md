@@ -110,6 +110,8 @@ que su registro ha sido eliminado
 - [Express](https://expressjs.com/es/)
 - [Express File Upload](https://www.npmjs.com/package/express-fileupload)
 - [JsonWebToken](https://www.npmjs.com/package/jsonwebtoken)
+- [node-postgres](https://www.https://www.npmjs.com/package/pg)
+- [node.bcrypt.js](https://www.npmjs.com/package/bcrypt)
 - [Handlebars](https://handlebarsjs.com/)
 - [Bootstrap](https://getbootstrap.com/)
 

@@ -6,18 +6,17 @@ const { verificar, mailVerify } = require("../database/consultas");
 //Autentica Token
 const autenticar = async (req, res) => {
   const { token } = req.query;
-  console.log("Verifica Token");
+  console.log("Autentica Token");
   if (!token) {
     return res.status(401).send({ auth: false, message: "No se ha entregado un token." });
   }
   try {
     const decoded = jwt.verify(token, secretKey);
     const { data } = decoded;
-
-    const datos = data[0];
-    const { email, nombre, password, anos_experiencia, especialidad } = datos;
-
+    const datos = data;
+    let { email, nombre, password, anos_experiencia, especialidad } = datos;
     const user = await mailVerify(email);
+
     if (!user) {
       return res.status(404).send({ auth: false, message: "Usuario no encontrado" });
     }
@@ -41,7 +40,7 @@ const verificaToken = async (req, res) => {
     });
   } else {
     if (user.length != 0) {
-      if (user[0].estado) {
+      if (user.estado) {
         const token = jwt.sign(
           {
             exp: Math.floor(Date.now() / 1000) + 120,
@@ -49,6 +48,7 @@ const verificaToken = async (req, res) => {
           },
           secretKey
         );
+
         res.send(token);
       } else {
         res.status(401).send({

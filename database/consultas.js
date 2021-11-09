@@ -1,4 +1,5 @@
 const PoolSingleton = require("./poolbd");
+const bcrypt = require("bcrypt");
 const pool = PoolSingleton.getInstance();
 
 const getUser = async () => {
@@ -25,14 +26,24 @@ const mailVerify = async (email) => {
 };
 
 const verificar = async (email, password) => {
+  console.log("Verificando datos en BD");
   let params = {
-    text: "SELECT * FROM skaters WHERE email = $1 AND password = $2",
-    values: [email, password],
+    text: "SELECT * FROM skaters WHERE email = $1",
+    values: [email],
   };
   try {
     const result = await pool.query(params);
-    return result.rows;
-    console.log(result.rows);
+    if (result.rowCount > 0) {
+      const isSame = await bcrypt.compare(password, result.rows[0].password);
+      console.log("isSame", isSame);
+      if (isSame) {
+        return result.rows[0];
+      } else {
+        return [];
+      }
+    } else {
+      return result.rows[0];
+    }
   } catch (e) {
     console.log(e);
     return false;
@@ -59,12 +70,14 @@ const editUser = async (datos) => {
 };
 const addUser = async (email, nombre, password, anos_experiencia, especialidad, foto) => {
   //const datosSkater = Object.values(datos);
+  let passHash = bcrypt.hashSync(password, 10);
+
   const consulta = {
     text: `INSERT INTO skaters (email, nombre, password, anos_experiencia, especialidad, foto, estado) 
                       values ($1,$2,$3,$4,$5,$6,true) RETURNING *;`,
-    values: [email, nombre, password, anos_experiencia, especialidad, foto],
+    values: [email, nombre, passHash, anos_experiencia, especialidad, foto],
   };
-
+  console.log(consulta.values);
   try {
     const result = await pool.query(consulta);
     return result;
