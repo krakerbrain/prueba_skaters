@@ -11,7 +11,8 @@ app.use("/bootstrap", express.static(__dirname + "/node_modules/bootstrap/dist")
 app.use("/jquery", express.static(__dirname + "/node_modules/jquery/dist"));
 app.use("/img", express.static(__dirname + "/public/assets/img"));
 
-app.listen(3000, () => console.log("Server ON"));
+let port = process.env.PORT || 3000;
+app.listen(port, () => console.log("Server ON"));
 
 app.use(
   expressFileUpload({
